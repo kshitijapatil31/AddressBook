@@ -52,7 +52,7 @@ public class AddressBook {
 			this.phoneNo=   null;
 			this.zip=  null;
 			this.emailId=  null;
-			System.out.println("After delete"+firstName+" "+lastName+" "+address+" "+phoneNo+" "+city+" "+state+" "+emailId);
+			System.out.println("After delete");
 		}
 		
 	}
@@ -86,8 +86,8 @@ public class AddressBook {
 		
 		String name=sc.next();
 		addressbook.deleteContact(name);
-		/*System.out.println("Enter the name to change contact");
-		String name=sc.nextLine();
+		System.out.println("Enter the name to change contact");
+		String name1=sc.nextLine();
 		
 		System.out.println("Enter the address");
 	    String address1=sc.nextLine();
@@ -105,11 +105,11 @@ public class AddressBook {
 		String phoneNo1=sc.nextLine();
 		
 		System.out.println("Enter the zip");
-		int zip1=sc.nextInt();*/
+		int zip1=sc.nextInt();
 		
-		//addressbook.editContact(name,address1,city1,state1,phoneNo1,emailId1);;
+		addressbook.editContact(name,address1,city1,state1,phoneNo1,emailId1);;
 		
-		//System.out.println("Enter the name to delete contact");
+		System.out.println("Enter the name to delete contact");
 		
 		
 		
