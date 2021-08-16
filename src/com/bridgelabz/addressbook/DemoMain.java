@@ -32,12 +32,20 @@ public class DemoMain {
 	}
 
 	public void deleteContact(String s) {
-		int con = haveContact(s);
-		if (con >= 0) {
-			array[con] = array[noOfContact - 1];
+		int dlt = haveContact(s);
+		if (dlt >= 0) {
+			array[dlt] = array[noOfContact - 1];
 			noOfContact--;
 		}
 	}
+	public void editContact(String s) {
+		int edit = haveContact(s);
+		if (edit >= 0 && ) {
+			array[dlt] = array[noOfContact - 1];
+			noOfContact--;
+		}
+	}
+	
 
 	public static void main(String[] args) {
 		DemoMain dm = new DemoMain();
@@ -74,7 +82,10 @@ public class DemoMain {
 
 				dm.printContacts();
 
-			} else if (choice != 5) {
+			}else if(choice == 4 ) {
+				
+			}
+			else if (choice != 5) {
 				System.out.println("Enter the correct choice");
 			}
 			choice = sc.nextInt();
