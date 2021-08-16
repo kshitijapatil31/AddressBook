@@ -38,15 +38,14 @@ public class DemoMain {
 			noOfContact--;
 		}
 	}
-	public void editContact(String s) {
-		int edit = haveContact(s);
-		if (edit >= 0 && ) {
-			array[dlt] = array[noOfContact - 1];
-			noOfContact--;
-		}
-	}
-	
 
+	
+public void menu() {
+	System.out.println("Enter the choice 1 to add contact");
+	System.out.println("Enter the choice 2 to remove contact");
+	System.out.println("Enter the choice 3 to display contact");
+	
+}
 	public static void main(String[] args) {
 		DemoMain dm = new DemoMain();
 		Scanner sc = new Scanner(System.in);
@@ -66,7 +65,7 @@ public class DemoMain {
 				String state = sc.nextLine();
 				System.out.println("Enter the zip");
 				Object zip = sc.nextLine();
-				System.out.println("Enter the phine number");
+				System.out.println("Enter the phone number");
 				String phoneNo = sc.nextLine();
 				System.out.println("Enter the email");
 				String emailId = sc.nextLine();
@@ -82,8 +81,6 @@ public class DemoMain {
 
 				dm.printContacts();
 
-			}else if(choice == 4 ) {
-				
 			}
 			else if (choice != 5) {
 				System.out.println("Enter the correct choice");
@@ -91,6 +88,8 @@ public class DemoMain {
 			choice = sc.nextInt();
 		}
 
+	
+		
 	}
 
 }
