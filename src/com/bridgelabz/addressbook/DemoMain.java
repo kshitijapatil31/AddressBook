@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class DemoMain {
 	Scanner sc = new Scanner(System.in);
 	int noOfContact = 0;
+
 	int size = sc.nextInt();
 	AddressBook array[];
 
@@ -51,8 +52,13 @@ public void menu() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the choice");
 		int choice = sc.nextInt();
+		System.out.println("how many persons u want to add in addressBook");
+		int num=sc.nextInt();
 		while (choice != 5) {
+			
 			if (choice == 1) {
+				
+				for(int i=0;i<num;i++) {
 				System.out.println("Enter the first name");
 				String firstName = sc.nextLine();
 				System.out.println("Enter the last name");
@@ -70,9 +76,15 @@ public void menu() {
 				System.out.println("Enter the email");
 				String emailId = sc.nextLine();
 
+				
+				
 				dm.addContact(new AddressBook(firstName, lastName, address, city, state, zip, phoneNo, emailId));
+				}
+				dm.printContacts();
 
-			} else if (choice == 2) {
+				
+			}
+			 else if (choice == 2) {
 				System.out.println("Enter the name to delete contact");
 				String name = sc.nextLine();
 				dm.deleteContact(name);
@@ -85,7 +97,7 @@ public void menu() {
 			else if (choice != 5) {
 				System.out.println("Enter the correct choice");
 			}
-			choice = sc.nextInt();
+			//choice = sc.nextInt();
 		}
 
 	
