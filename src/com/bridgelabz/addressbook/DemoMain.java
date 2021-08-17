@@ -36,7 +36,11 @@ public class DemoMain {
 		int dlt = haveContact(s);
 		if (dlt >= 0) {
 			array[dlt] = array[noOfContact - 1];
+
 			noOfContact--;
+
+			array[noOfContact]=array[noOfContact-1];
+
 		}
 	}
 
@@ -53,13 +57,17 @@ public static void menu() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the choice");
 		int choice = sc.nextInt();
+
 		System.out.println("how many persons u want to add in addressBook");
 		int num=sc.nextInt();
+
 		while (choice != 5) {
 			
 			if (choice == 1) {
 				
+
 				for(int i=0;i<num;i++) {
+
 				System.out.println("Enter the first name");
 				String dummy=sc.nextLine();
 				String firstName = sc.nextLine();
@@ -81,7 +89,9 @@ public static void menu() {
 				
 				
 				dm.addContact(new AddressBook(firstName, lastName, address, city, state, zip, phoneNo, emailId));
+
 				}
+
 				//dm.printContacts();
 
 				
@@ -109,4 +119,7 @@ public static void menu() {
 		
 	}
 
+
 }
+
+
