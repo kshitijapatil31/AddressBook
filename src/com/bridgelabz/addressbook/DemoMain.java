@@ -41,7 +41,8 @@ public class DemoMain {
 	}
 
 	
-public void menu() {
+public static void menu() {
+	System.out.println(/***********************/);
 	System.out.println("Enter the choice 1 to add contact");
 	System.out.println("Enter the choice 2 to remove contact");
 	System.out.println("Enter the choice 3 to display contact");
@@ -60,6 +61,7 @@ public void menu() {
 				
 				for(int i=0;i<num;i++) {
 				System.out.println("Enter the first name");
+				String dummy=sc.nextLine();
 				String firstName = sc.nextLine();
 				System.out.println("Enter the last name");
 				String lastName = sc.nextLine();
@@ -80,13 +82,15 @@ public void menu() {
 				
 				dm.addContact(new AddressBook(firstName, lastName, address, city, state, zip, phoneNo, emailId));
 				}
-				dm.printContacts();
+				//dm.printContacts();
 
 				
 			}
 			 else if (choice == 2) {
 				System.out.println("Enter the name to delete contact");
 				String name = sc.nextLine();
+				String dummy=sc.nextLine();
+
 				dm.deleteContact(name);
 
 			} else if (choice == 3) {
@@ -97,7 +101,8 @@ public void menu() {
 			else if (choice != 5) {
 				System.out.println("Enter the correct choice");
 			}
-			//choice = sc.nextInt();
+			menu();
+			choice = sc.nextInt();
 		}
 
 	
