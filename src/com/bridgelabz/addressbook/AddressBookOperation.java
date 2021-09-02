@@ -10,43 +10,10 @@ public class AddressBookOperation {
 	
 	
 	
-	public void add() {
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the First Name");
-		String firstName=sc.next();
-		person.setFirstName(firstName);
-		
-		System.out.println("Enter the Last Name");
-		String lastName=sc.next();
-		person.setLastName(lastName);
-		
-		System.out.println("Enter the address");
-		String address=sc.next();
-		person.setAddress(address);
-		
-		System.out.println("Enter the city");
-		String city=sc.next();
-		person.setCity(city);
-		
-		System.out.println("Enter the state");
-		String state=sc.next();
-		person.setState(state);
-		
-		System.out.println("Enter the zip");
-		String zip=sc.next();
-		person.setEmailId(zip);
-		
-		System.out.println("Enter the Phone number");
-		String phoneNO=sc.next();
-		person.setEmailId(phoneNO);
-		
-		System.out.println("Enter the emailId");
-		String emailId=sc.next();
-		person.setEmailId(emailId);
-		
-		arrayList.add(new AddressBook(person.getFirstName(),person.getLastName(),person.getAddress(),person.getCity(),person.getState(),person.getZip(),person.getPhoneNo() ,person.getEmailId()));
+	public void add(AddressBook p) {
 	
-	
+	  arrayList.add(p);
+		
 	}
 	
 	public void print() {
@@ -59,12 +26,46 @@ public class AddressBookOperation {
 		Scanner sc =new Scanner(System.in);
 		AddressBookOperation addressbook=new AddressBookOperation();
 		do {
+			System.out.println("/******MENU********/");
 			System.out.println("Enter 1 to add");
 			System.out.println("Enter 2 to print");
+			System.out.println("/**************/");
 			int choice=sc.nextInt();
 			switch(choice) {
 			case 1:
-				addressbook.add();
+				System.out.println("Enter the First Name");
+				String firstName=sc.next();
+				
+				
+				System.out.println("Enter the Last Name");
+				String lastName=sc.next();
+				
+				
+				System.out.println("Enter the address");
+				String address=sc.next();
+				
+				
+				System.out.println("Enter the city");
+				String city=sc.next();
+				
+				
+				System.out.println("Enter the state");
+				String state=sc.next();
+				
+				
+				System.out.println("Enter the zip");
+				String zip=sc.next();
+				
+				
+				System.out.println("Enter the Phone number");
+				String phoneNo=sc.next();
+				
+				
+				System.out.println("Enter the emailId");
+				String emailId=sc.next();
+				
+				addressbook.add(new AddressBook(firstName,lastName,address,city,state,zip,phoneNo,emailId));
+			
 			case 2:
 				addressbook.print();
 			}

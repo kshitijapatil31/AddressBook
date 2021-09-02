@@ -3,7 +3,7 @@ package com.bridgelabz.addressbook;
 public class AddressBook {
 
 	
-	String firstName;
+	static String firstName;
 	String lastName;
 	String address;
 	String city;
@@ -75,6 +75,12 @@ public class AddressBook {
 	}
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
+	}
+
+	@Override
+	public String toString() {
+		return "AddressBook [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city="
+				+ city + ", state=" + state + ", zip=" + zip + ", phoneNo=" + phoneNo + ", emailId=" + emailId + "]";
 	}
 	
 
