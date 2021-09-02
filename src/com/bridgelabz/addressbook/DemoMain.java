@@ -88,7 +88,7 @@ public static void menu() {
 
 				
 				
-				dm.addContact(new AddressBook(firstName, lastName, address, city, state, zip, phoneNo, emailId));
+				//dm.addContact(new AddressBook(firstName, lastName, address, city, state, zip, phoneNo, emailId));
 
 				}
 

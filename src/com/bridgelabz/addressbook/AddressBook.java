@@ -1,5 +1,7 @@
 package com.bridgelabz.addressbook;
 
+import java.util.ArrayList;
+
 public class AddressBook {
 
 	
@@ -11,13 +13,13 @@ public class AddressBook {
 	Object zip;
 	String phoneNo;
 	String emailId;
-	
+	ArrayList<AddressBook>arrayList=new ArrayList<>();
 	public AddressBook() {
 		
 	}
 	
 	public AddressBook(String firstName, String lastName, String address, String city, String state, Object zip,
-			String phoneNo, String emailId) {
+			String phoneNo, String emailId,ArrayList<AddressBook>arrayList) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -27,6 +29,7 @@ public class AddressBook {
 		this.zip = zip;
 		this.phoneNo = phoneNo;
 		this.emailId = emailId;
+		this.arrayList=arrayList;
 	}
 	public String getFirstName() {
 		return firstName;
