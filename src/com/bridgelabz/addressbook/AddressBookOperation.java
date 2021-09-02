@@ -96,7 +96,7 @@ public class AddressBookOperation {
 				String cityName=sc.next();
 				AddressBook cityobj=addressbook.searchByCity(cityName);
 				
-				System.out.println("The contact is:");
+				System.out.println("The person is:");
                 System.out.println("First Name:"+cityobj.getFirstName());
                
 				break;
