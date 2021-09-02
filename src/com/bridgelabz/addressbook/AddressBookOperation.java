@@ -1,7 +1,7 @@
 package com.bridgelabz.addressbook;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.Scanner;
 
 public class AddressBookOperation {
@@ -13,6 +13,15 @@ public class AddressBookOperation {
 	public void add(AddressBook p) {
 	
 	  arrayList.add(p);
+	  String name=p.getFirstName()+p.getLastName();
+	    for(int i=0;i<arrayList.size();i++) {
+		AddressBook detail=arrayList.get(i);
+		String contactName=detail.getFirstName()+detail.getLastName();
+		if(contactName.equals(name)) {
+			System.out.println("Sorry! this contact is already exit");
+		     return;
+		}
+	}
 		
 	}
 	
