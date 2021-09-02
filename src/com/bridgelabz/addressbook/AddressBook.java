@@ -12,6 +12,10 @@ public class AddressBook {
 	String phoneNo;
 	String emailId;
 	
+	public AddressBook() {
+		
+	}
+	
 	public AddressBook(String firstName, String lastName, String address, String city, String state, Object zip,
 			String phoneNo, String emailId) {
 		super();
@@ -72,15 +76,6 @@ public class AddressBook {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-	@Override
-	public String toString() {
-		return "AddressBook [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city="
-				+ city + ", state=" + state + ", zip=" + zip + ", phoneNo=" + phoneNo + ", emailId=" + emailId + "]";
-	}
-	
-	
-		
-	
 	
 
 }
