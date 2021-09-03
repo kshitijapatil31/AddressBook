@@ -46,7 +46,22 @@ public class AddressBookOperation {
 		}
 		return person;
 	}
+	private int noOfContact(String name) {
+		int cityCount=0,stateCount=0;
 	
+		for(int i=0;i<arrayList.size();i++) {
+			if(arrayList.contains(name)) {
+				cityCount++;
+				return cityCount;
+			}else if(arrayList.contains(name)) {
+				
+					stateCount++;
+					return stateCount;
+			}
+		}
+		return 0;
+		
+	}
 	public void print() {
 		for(int i=0;i<arrayList.size();i++) {
 			System.out.println(arrayList.get(i));
@@ -63,6 +78,7 @@ public class AddressBookOperation {
 			System.out.println("Enter 2 to print");
 			System.out.println("Enter 3 to search");
 			System.out.println("Enter 4 to view person by city or state ");
+			System.out.println("Enter 5 to get number of contact by city or state ");
 			System.out.println("/**************/");
 			int choice=sc.nextInt();
 			switch(choice) {
@@ -124,17 +140,41 @@ public class AddressBookOperation {
                 
 				}else if(input==2) {
 				
-				System.out.println("Enter the person name");
+				System.out.println("Enter the state name");
 				String stateName=sc.next();
 				AddressBook stateObj=addressbook.personCityState(stateName);
 				System.out.println(stateObj.getFirstName());
+				break;
 				}
+			case 5:
+				System.out.println("Enter the input to view person 1.city 2.state ");
+				int input1=sc.nextInt();
+				if(input1==1) {
+				System.out.println("Enter the city name");
+				String cityName1=sc.next();
+				int countCity=addressbook.noOfContact(cityName1);
+				System.out.println("The count is:");
+                System.out.println("No of contact:" +countCity);
+                
+				}else if(input1==2) {
+				
+				System.out.println("Enter the state name");
+				String stateName=sc.next();
+				int countState=addressbook.noOfContact(stateName);
+				System.out.println("The count is:");
+                System.out.println("No of contact:" +countState);
+				break;
+				
+				}default:
+					
 			}	
-			
-		}while(true);
+			}while(true);
 		
 		
 			
+	
+		}
+	
 	}
 
-}
+
