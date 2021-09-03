@@ -35,6 +35,17 @@ public class AddressBookOperation {
 		return person;
 		
 	}
+	public AddressBook personCityState(String Name){
+	
+	for(AddressBook obj:arrayList) {
+			if(obj.getCity()==Name) {
+				person=obj;
+			}else if(obj.getState()==Name){
+				person=obj;
+			}
+		}
+		return person;
+	}
 	
 	public void print() {
 		for(int i=0;i<arrayList.size();i++) {
@@ -51,6 +62,7 @@ public class AddressBookOperation {
 			System.out.println("Enter 1 to add");
 			System.out.println("Enter 2 to print");
 			System.out.println("Enter 3 to search");
+			System.out.println("Enter 4 to view person by city or state ");
 			System.out.println("/**************/");
 			int choice=sc.nextInt();
 			switch(choice) {
@@ -100,6 +112,23 @@ public class AddressBookOperation {
                 System.out.println("First Name:"+cityobj.getFirstName());
                
 				break;
+			case 4:
+				System.out.println("Enter the input to view person 1.city 2.state ");
+				int input=sc.nextInt();
+				if(input==1) {
+				System.out.println("Enter the city name");
+				String cityName1=sc.next();
+				AddressBook cityObj=addressbook.personCityState(cityName1);
+				System.out.println("The person is:");
+                System.out.println(cityObj.getFirstName());
+                
+				}else if(input==2) {
+				
+				System.out.println("Enter the person name");
+				String stateName=sc.next();
+				AddressBook stateObj=addressbook.personCityState(stateName);
+				System.out.println(stateObj.getFirstName());
+				}
 			}	
 			
 		}while(true);
