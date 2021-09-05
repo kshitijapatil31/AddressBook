@@ -1,8 +1,9 @@
 package com.bridgelabz.addressbook;
 
 import java.util.ArrayList;
-
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class AddressBookOperation {
 	AddressBook person=new AddressBook();
@@ -16,13 +17,21 @@ public class AddressBookOperation {
 	  String name=p.getFirstName()+p.getLastName();
 	    for(int i=0;i<arrayList.size();i++) {
 		AddressBook detail=arrayList.get(i);
-		String contactName=detail.getFirstName()+detail.getLastName();
-		if(contactName.equals(name)) {
+		
+		
+		
+		if(unique(arrayList)) {
 			System.out.println("Sorry! this contact is already exit");
 		     return;
 		}
 	}
 	    arrayList.add(p);
+	}
+	
+	
+	public boolean unique(ArrayList<AddressBook>arrayList) {
+		Set<AddressBook> set=new HashSet<>();
+		return arrayList.stream().allMatch(n->set.add(n));
 	}
 	public AddressBook searchByCity(String cityName) {
 		
