@@ -46,15 +46,18 @@ public class AddressBookOperation {
 
 	public AddressBook personCityState(String name) {
 
-		for (AddressBook obj : arrayList) {
-			if (obj.getCity() == name) {
-				person = obj;
-			} else if (obj.getState() == name) {
-				person = obj;
+		arrayList.stream().forEach(n->{
+			
+			for(AddressBook obj:arrayList) {
+					if(obj.getCity()==name) {
+						person=obj;
+					}else if(obj.getState()==name){
+						person=obj;
+					}
+				}
+				});
+				return person;
 			}
-		}
-		return person;
-	}
 
 	private int noOfContact(String name) {
 		int cityCount = 0, stateCount = 0;
