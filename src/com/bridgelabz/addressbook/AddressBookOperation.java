@@ -45,7 +45,6 @@ public class AddressBookOperation {
 	}
 
 	public AddressBook personCityState(String name) {
-
 		arrayList.stream().forEach(n->{
 			
 			for(AddressBook obj:arrayList) {
@@ -58,21 +57,21 @@ public class AddressBookOperation {
 				});
 				return person;
 			}
+	private void noOfContact(String name) {
+	
+	
 
-	private int noOfContact(String name) {
-		int cityCount = 0, stateCount = 0;
-
-		for (int i = 0; i < arrayList.size(); i++) {
 			if (arrayList.contains(name)) {
-				cityCount++;
-				return cityCount;
+				System.out.println(arrayList.stream().filter(arrayList->name.equals(arrayList.city)).count());
+				
 			} else if (arrayList.contains(name)) {
 
-				stateCount++;
-				return stateCount;
+				System.out.println(arrayList.stream().filter(arrayList->name.equals(arrayList.state)).count());
+				
 			}
-		}
-		return 0;
+		
+		
+	
 
 	}
 
@@ -160,17 +159,15 @@ public class AddressBookOperation {
 				if (input1 == 1) {
 					System.out.println("Enter the city name");
 					String cityName1 = sc.next();
-					int countCity = addressbook.noOfContact(cityName1);
-					System.out.println("The count is:");
-					System.out.println("No of contact:" + countCity);
+					addressbook.noOfContact(cityName1);
+					
 
 				} else if (input1 == 2) {
 
 					System.out.println("Enter the state name");
 					String stateName = sc.next();
-					int countState = addressbook.noOfContact(stateName);
-					System.out.println("The count is:");
-					System.out.println("No of contact:" + countState);
+					addressbook.noOfContact(stateName);
+
 					break;
 
 				}
