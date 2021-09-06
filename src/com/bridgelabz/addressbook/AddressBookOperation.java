@@ -79,11 +79,25 @@ public class AddressBookOperation {
 		List<AddressBook> sortedList = arrayList.stream().sorted(Comparator.comparing(AddressBook::getFirstName))
 
 				.collect(Collectors.toList());
+<<<<<<< HEAD
+=======
 
 		sortedList.forEach(System.out::println);
 	}
 
+	void sortByCity() {
+		List<AddressBook> sortedList = arrayList.stream().sorted(Comparator.comparing(AddressBook::getCity))
 
+				.collect(Collectors.toList());
+>>>>>>> uc12
+
+		sortedList.forEach(System.out::println);
+	}
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> uc12
 	public void print() {
 		for (int i = 0; i < arrayList.size(); i++) {
 			System.out.println(arrayList.get(i));
@@ -185,6 +199,13 @@ public class AddressBookOperation {
 				addressbook.sortByPerson();
 				break;
 
+<<<<<<< HEAD
+=======
+			case 7:
+
+				addressbook.sortByCity();
+				break;
+>>>>>>> uc12
 
 			default:
 
