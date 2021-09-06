@@ -1,9 +1,13 @@
 package com.bridgelabz.addressbook;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class AddressBookOperation {
@@ -13,11 +17,11 @@ public class AddressBookOperation {
 
 	public void add(AddressBook p) {
 
-		String name = p.getFirstName() + p.getLastName();
+		//String name = p.getFirstName() + p.getLastName();
 		for (int i = 0; i < arrayList.size(); i++) {
 			AddressBook detail = arrayList.get(i);
 
-			if (unique(arrayList)) {
+			if (!unique(arrayList)) {
 				System.out.println("Sorry! this contact is already exit");
 				return;
 			}
@@ -70,11 +74,18 @@ public class AddressBookOperation {
 				
 			}
 		
-		
 	
+	}
+	void sortByPerson() {
+		List<AddressBook> sortedList= arrayList                          
+                .stream()
+                .sorted()
+                .collect(Collectors.toList());  
 
+System.out.println(sortedList);
 	}
 
+	
 	public void print() {
 		for (int i = 0; i < arrayList.size(); i++) {
 			System.out.println(arrayList.get(i));
@@ -92,6 +103,7 @@ public class AddressBookOperation {
 			System.out.println("Enter 3 to search");
 			System.out.println("Enter 4 to view person by city or state ");
 			System.out.println("Enter 5 to get number of contact by city or state ");
+			System.out.println("Enter 6 to sort the entries ");
 			System.out.println("/**************/");
 			int choice = sc.nextInt();
 			switch (choice) {
@@ -171,6 +183,9 @@ public class AddressBookOperation {
 					break;
 
 				}
+			case 6:
+				
+				addressbook.sortByPerson();
 			default:
 
 			}
