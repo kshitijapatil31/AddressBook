@@ -17,7 +17,7 @@ public class AddressBookOperation {
 
 	public void add(AddressBook p) {
 
-		//String name = p.getFirstName() + p.getLastName();
+		// String name = p.getFirstName() + p.getLastName();
 		for (int i = 0; i < arrayList.size(); i++) {
 			AddressBook detail = arrayList.get(i);
 
@@ -49,43 +49,41 @@ public class AddressBookOperation {
 	}
 
 	public AddressBook personCityState(String name) {
-		arrayList.stream().forEach(n->{
-			
-			for(AddressBook obj:arrayList) {
-					if(obj.getCity()==name) {
-						person=obj;
-					}else if(obj.getState()==name){
-						person=obj;
-					}
+		arrayList.stream().forEach(n -> {
+
+			for (AddressBook obj : arrayList) {
+				if (obj.getCity() == name) {
+					person = obj;
+				} else if (obj.getState() == name) {
+					person = obj;
 				}
-				});
-				return person;
 			}
+		});
+		return person;
+	}
+
 	private void noOfContact(String name) {
-	
-	
 
-			if (arrayList.contains(name)) {
-				System.out.println(arrayList.stream().filter(arrayList->name.equals(arrayList.city)).count());
-				
-			} else if (arrayList.contains(name)) {
+		if (arrayList.contains(name)) {
+			System.out.println(arrayList.stream().filter(arrayList -> name.equals(arrayList.city)).count());
 
-				System.out.println(arrayList.stream().filter(arrayList->name.equals(arrayList.state)).count());
-				
-			}
-		
-	
+		} else if (arrayList.contains(name)) {
+
+			System.out.println(arrayList.stream().filter(arrayList -> name.equals(arrayList.state)).count());
+
+		}
+
 	}
+
 	void sortByPerson() {
-		List<AddressBook> sortedList= arrayList                          
-                .stream()
-                .sorted()
-                .collect(Collectors.toList());  
+		List<AddressBook> sortedList = arrayList.stream().sorted(Comparator.comparing(AddressBook::getFirstName))
 
-System.out.println(sortedList);
+				.collect(Collectors.toList());
+
+		sortedList.forEach(System.out::println);
 	}
 
-	
+
 	public void print() {
 		for (int i = 0; i < arrayList.size(); i++) {
 			System.out.println(arrayList.get(i));
@@ -172,7 +170,6 @@ System.out.println(sortedList);
 					System.out.println("Enter the city name");
 					String cityName1 = sc.next();
 					addressbook.noOfContact(cityName1);
-					
 
 				} else if (input1 == 2) {
 
@@ -184,8 +181,11 @@ System.out.println(sortedList);
 
 				}
 			case 6:
-				
+
 				addressbook.sortByPerson();
+				break;
+
+
 			default:
 
 			}
