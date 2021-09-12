@@ -1,5 +1,12 @@
 package com.bridgelabz.addressbook;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -9,6 +16,8 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+
 
 public class AddressBookOperation {
 	AddressBook person = new AddressBook();
@@ -79,31 +88,64 @@ public class AddressBookOperation {
 		List<AddressBook> sortedList = arrayList.stream().sorted(Comparator.comparing(AddressBook::getFirstName))
 
 				.collect(Collectors.toList());
-<<<<<<< HEAD
-=======
+
 
 		sortedList.forEach(System.out::println);
 	}
 
 	void sortByCity() {
 		List<AddressBook> sortedList = arrayList.stream().sorted(Comparator.comparing(AddressBook::getCity))
-
 				.collect(Collectors.toList());
->>>>>>> uc12
 
 		sortedList.forEach(System.out::println);
 	}
 
-<<<<<<< HEAD
 
-=======
->>>>>>> uc12
 	public void print() {
 		for (int i = 0; i < arrayList.size(); i++) {
 			System.out.println(arrayList.get(i));
 		}
 	}
 
+	public void writeAddressBookData(com.bridgelabz.addressbook.IOService IOService) {
+		if (IOService.equals(com.bridgelabz.addressbook.IOService.CONSOLE_IO)) {
+			System.out.println(arrayList);
+		} else if (IOService.equals(com.bridgelabz.addressbook.IOService.FILE_IO)) {
+
+			new AddressBookFileIOService().writeData(arrayList);
+		}
+	}
+
+	private static void readFile(Scanner sc,AddressBookOperation addressbook,ArrayList<AddressBook> arrayList)  {
+		
+		System.out.println("Enter the First Name");
+		String firstName = sc.next();
+
+		System.out.println("Enter the Last Name");
+		String lastName = sc.next();
+
+		System.out.println("Enter the address");
+		String address = sc.next();
+
+		System.out.println("Enter the city");
+		String city = sc.next();
+
+		System.out.println("Enter the state");
+		String state = sc.next();
+
+		System.out.println("Enter the zip");
+		String zip = sc.next();
+
+		System.out.println("Enter the Phone number");
+		String phoneNo = sc.next();
+
+		System.out.println("Enter the emailId");
+		String emailId = sc.next();
+
+		addressbook.add(
+				new AddressBook(firstName, lastName, address, city, state, zip, phoneNo, emailId, arrayList));
+		
+	}
 	public static void main(String[] args) {
 		ArrayList<AddressBook> arrayList = new ArrayList<>();
 		Scanner sc = new Scanner(System.in);
@@ -116,6 +158,9 @@ public class AddressBookOperation {
 			System.out.println("Enter 4 to view person by city or state ");
 			System.out.println("Enter 5 to get number of contact by city or state ");
 			System.out.println("Enter 6 to sort the entries ");
+			System.out.println("Enter 7 to sort the city ");
+			System.out.println("Enter 8 to read the file ");
+			System.out.println("Enter 9 to write file");
 			System.out.println("/**************/");
 			int choice = sc.nextInt();
 			switch (choice) {
@@ -199,19 +244,26 @@ public class AddressBookOperation {
 				addressbook.sortByPerson();
 				break;
 
-<<<<<<< HEAD
-=======
+
 			case 7:
 
 				addressbook.sortByCity();
 				break;
->>>>>>> uc12
+			case 8:
 
+				readFile(sc,addressbook,arrayList);
+				break;
+			case 9:
+
+				addressbook.writeAddressBookData(com.bridgelabz.addressbook.IOService.CONSOLE_IO);
+				break;
 			default:
 
 			}
 		} while (true);
 
 	}
+
+	
 
 }
